@@ -263,6 +263,11 @@
     width: 1920px;
   }
 
+  .table-sueldos {
+    border: black 1px solid;
+    text-align: center;
+  }
+
 
   /* Responsive Styles */
   @media screen and (max-width: 767px) {
@@ -309,24 +314,149 @@
 
   <!-- Resources -->
   <h2>Calcular Sueldos</h2>
-  <p>Captura los siguientes datos:</p>  
+  <h3 style="color: blue;">Captura de Equipos:</h3>  
   
   <div class="ui-g-12 ui-md-12">
-      <div class="ui-g-4 ui-md-4">
-          <h4>Nombre Equipo:</h4>
-          <input #equipo type="text">
-      </div>
-      <div class="ui-g-4 ui-md-4">
-          <h4>Nivel:</h4>
-          <input #nivel type="text">
-      </div>
-      <div class="ui-g-4 ui-md-4">
-          <h4>Goles:</h4>
-          <input #goles type="text">
-      </div>
+      <table class="color_tablas" style="border: 0px"  width="100%">
+          <tr>
+              <td colspan="2">
+                  <h4>Nombre Equipo:</h4>
+                  <input #equipo type="text">
+              </td>
+          </tr>
+          <tr>
+              <td>
+                  <h4>Nivel:</h4>
+                  <input #nivel type="text">
+              </td>
+              <td>
+                  <h4>Goles:</h4>
+                  <input #goles type="number">
+              </td>
+          </tr>
+        </table>
   </div>
   <div class="ui-g-12 ui-md-12">
-      <button (click)="agregaEqupio(equipo.value,nivel.value,goles.value)">Agregar Equipo</button>
+      <button (click)="agregaNivel(equipo.value,nivel.value,goles.value)">Agregar nivel</button>
+  </div>
+  <div class="ui-g-12 ui-md-12">
+      <table *ngIf="listaEquipos != null" class="table-sueldos">
+        <tr class="table-sueldos">
+          <td colspan="3" class="table-sueldos"><h4>EQUIPOS</h4></td>
+        </tr>
+        <tr class="table-sueldos">
+          <td class="table-sueldos"><h4>Nombre</h4></td>
+          <td class="table-sueldos"><h4>Nivel/Goles</h4></td>
+        </tr>
+        <tr *ngFor="let e of listaEquipos" class="table-sueldos">
+          <td class="table-sueldos">{{ e.equipo }}</td>
+          <td>
+              <table *ngIf="e.tipoNiveles != null" class="table-sueldos">
+                  <tr class="table-sueldos">
+                      <td class="table-sueldos" ><h4>Nivel</h4></td>
+                      <td class="table-sueldos"><h4>Goles Por Equipo</h4></td>
+                  </tr>
+                  <tr *ngFor="let n of e.tipoNiveles" >
+                      <td class="table-sueldos"><h4>{{ n.nivel }}</h4></td>
+                      <td class="table-sueldos"> <h4>{{ n.golesXmes }}</h4></td>
+                  </tr>
+              </table>
+          </td>          
+        </tr>
+      </table>
+  </div>
+  <br>
+  <br>
+  <h3 style="color: blue;">Captura de Jugadores:</h3>  
+  
+  <div class="ui-g-12 ui-md-12">
+      <table class="color_tablas" style="border: 0px"  width="100%">
+          <tr>
+              <td colspan="4">
+                  <h4>Nombre Equipo:</h4>
+                  <input #equipoJ type="text">
+              </td>
+          </tr>
+          <tr>
+              <td>
+                  <h4>Nombre Jugador:</h4>
+                  <input #nombreJ type="text">
+              </td>
+              <td>
+                  <h4>Nivel Jugador:</h4>
+                  <input #nivelJ type="text">
+              </td>
+              <td>
+                  <h4>Goles Jugador:</h4>
+                  <input #golesJ type="number">
+              </td>
+              <td>
+                  <h4>Sueldo:</h4>
+                  <input #sueldoJ type="number">
+              </td>
+              <td>
+                  <h4>Bono:</h4>
+                  <input #bonoJ type="number">
+              </td>
+          </tr>
+        </table>
+  </div>
+  <div class="ui-g-12 ui-md-12">
+      <button (click)="agregarJugador(equipoJ.value,nombreJ.value,nivelJ.value,golesJ.value,sueldoJ.value,bonoJ.value)">Agregar jugador</button>
+  </div> 
+  <div class="ui-g-12 ui-md-12">
+      <table *ngIf="listaJugadores != null" class="table-sueldos">
+        <tr class="table-sueldos">
+          <td colspan="6" class="table-sueldos"><h2>EQUIPOS</h2></td>
+        </tr>
+        <tr class="table-sueldos">
+          <td class="table-sueldos"><h4>Nombre Equipo</h4></td>
+          <td class="table-sueldos"><h4>Jugador</h4></td>
+          <td class="table-sueldos"><h4>Nivel</h4></td>
+          <td class="table-sueldos"><h4>Goles</h4></td>
+          <td class="table-sueldos"><h4>Sueldo</h4></td>
+          <td class="table-sueldos"><h4>Bono</h4></td>
+        </tr>
+        <tr *ngFor="let j of listaJugadores" class="table-sueldos">
+          <td class="table-sueldos">{{ j.equipo }}</td>         
+          <td class="table-sueldos">{{ j.nombre }}</td>    
+          <td class="table-sueldos">{{ j.nivel }}</td>    
+          <td class="table-sueldos">{{ j.goles }}</td>    
+          <td class="table-sueldos">{{ j.sueldo }}</td>    
+          <td class="table-sueldos">{{ j.bono }}</td>    
+        </tr>
+      </table>
+  </div>
+  <br>
+  <br>
+  <br>
+  <br><div class="ui-g-12 ui-md-12">
+      <button (click)="calcularSueldos()">Calcular Sueldos</button>
+  </div> 
+  <div class="ui-g-12 ui-md-12">
+      <table *ngIf="modelResponseSueldos != null" class="table-sueldos">
+        <tr class="table-sueldos">
+          <td colspan="7" class="table-sueldos"><h2>RESULTADOS</h2></td>
+        </tr>
+        <tr class="table-sueldos">
+          <td class="table-sueldos"><h4>Nombre Equipo</h4></td>
+          <td class="table-sueldos"><h4>Jugador</h4></td>
+          <td class="table-sueldos"><h4>Goles minimos</h4></td>
+          <td class="table-sueldos"><h4>Goles</h4></td>
+          <td class="table-sueldos"><h4>Sueldo</h4></td>
+          <td class="table-sueldos"><h4>Bono</h4></td>
+          <td class="table-sueldos"><h4>Sueldo completo</h4></td>
+        </tr>
+        <tr *ngFor="let r of modelResponseSueldos" class="table-sueldos">
+          <td class="table-sueldos">{{ r.equipo }}</td>   
+          <td class="table-sueldos">{{ r.nombre }}</td> 
+          <td class="table-sueldos">{{ r.goles_minimos }}</td> 
+          <td class="table-sueldos">{{ r.goles }}</td> 
+          <td class="table-sueldos">{{ r.sueldo }}</td> 
+          <td class="table-sueldos">{{ r.bono }}</td> 
+          <td class="table-sueldos">{{ r.sueldo_completo }}</td> 
+        </tr>
+      </table>
   </div>
 
 </div>
