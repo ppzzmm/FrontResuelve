@@ -29,7 +29,7 @@ Despues ingresamos el siguiente comando para instalar angular-cli:
 
 > npm install –g @angular/cli
 
-# Levantaos el proyecto
+# Levantamos el proyecto
 
 Antes de levantar el proyecto angular, primero sería necesario levantar el proyecto del siguiente repositorio:
 
