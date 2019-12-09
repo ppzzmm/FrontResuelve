@@ -45,9 +45,11 @@ Después abrimos nuestra terminal (pulsas Windows + R y luego escribes cmd para 
 
 Estando en esta ruta colocamos el siguiente comando, este es para que se descarguen todas las dependencias:
 
->npm install
+> npm install
 
-Ahora para levantar e proyecto ingresamos el siguiente comando, al ejecutarlo se abrirá nuestro navegador en la dirección http://localhost:4200/, si no es asi tendrías que abrir tu navegador y pegar esa url para que puedas ver el programa.
+Ahora para levantar e proyecto ingresamos el siguiente comando, al ejecutarlo se abrirá nuestro navegador en la dirección http://localhost:4200/, si no es asi tendrías que abrir tu navegador y pegar esa url para que puedas ver el programa:
+
+> ng serve -o
 
 LISTO!! Ya puedes interactuar con el programa.
 
