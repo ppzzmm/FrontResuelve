@@ -1,27 +1,36 @@
 # ResuelveFCFront
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.20.
+Este projecto fue realizado con [Angular CLI](https://github.com/angular/angular-cli) version 8.3.20.
 
-## Development server
+## Requisitos
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+- Node
 
-## Code scaffolding
+- NPM
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- Angular-cli
 
-## Build
+## Instalamos Node y NPM
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+Para instalar Node y NPM en nuestro equipo, accedemos a la web de Node JS
+en la url:
 
-## Running unit tests
+> https://nodejs.org/es/
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Instalamos node y despues sera necesario reiniciar nuestra maquina.
 
-## Running end-to-end tests
+## Instalacion de Angular-cli
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+Una vez instalado node y npm, abrimos una consola de windows(pulsas Windows + R y luego escribes cmd para ingresar a la consola de windows), ingresamos el siguiente comando para verificar que npm este instalado:
 
-## Further help
+> npm -v
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+Despues ingresamos el siguiente comando para instalar angular-cli:
+
+> npm install –g @angular/cli
+
+# Levantaos el proyecto
+
+Antes de levantar el proyecto angular, primero seria necesario levantar el proyecto del siguiente repositorio:
+
+https://github.com/ppzzmm/BachResuelve
